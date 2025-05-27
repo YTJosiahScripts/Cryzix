@@ -1,0 +1,250 @@
+<!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cryzix</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Arial', sans-serif;
+      background: linear-gradient(135deg, #1a0000, #2d0000, #0f0f0f);
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #fff;
+      padding: 20px;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.95); }
+      to { opacity: 1; transform: scale(1); }
+    }
+    .container {
+      background: rgba(20,0,0,0.9);
+      border: 4px solid #8B0000;
+      border-radius: 15px;
+      padding: 60px;
+      width: 100%;
+      max-width: 700px;
+      box-shadow: 0 15px 40px rgba(139,0,0,0.4);
+      backdrop-filter: blur(12px);
+      animation: fadeIn 1s ease-in;
+      position: relative;
+    }
+    h1 { font-size: clamp(2rem, 5vw, 3.2rem); text-align: center; color: #FFC107; margin-bottom: 20px; }
+    h2 { font-size: clamp(1.5rem, 4vw, 2rem); text-align: center; color: #FF5722; margin-bottom: 20px; }
+    .sep { border: 0; height: 3px; background: #8B0000; margin: 40px 0; }.reasons { display: grid; grid-template-columns: 1fr; gap: 25px; }
+.reason { border: 6px solid #8B0000; border-radius: 12px; padding: 25px 30px; position: relative; color: #EEE; }
+.reason::before {
+  content: attr(data-number);
+  position: absolute;
+  top: -22px;
+  left: -22px;
+  background: #8B0000;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 1.2rem;
+  color: #FFF;
+}
+
+/* Supported Games */
+.supported-wrapper {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+  margin-bottom: 40px;
+}
+.game-card {
+  border: 6px solid #8B0000;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #222;
+  text-align: center;
+}
+.game-card img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  display: block;
+}
+.game-card .label {
+  padding: 8px 0;
+  font-size: 1.05rem;
+  color: #FF0000; /* labels in red */
+}
+
+/* Call to Action */
+.use-script {
+  text-align: center;
+  font-size: clamp(1rem, 3vw, 1.5rem);
+  color: #FFEB3B;
+  margin-bottom: 10px;
+}
+.main-copy-btn {
+  background: #5865F2;
+  border: none;
+  color: #fff;
+  padding: 8px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1rem;
+  margin-left: 20px;
+  margin-bottom: 40px;
+  position: relative;
+  overflow: hidden;
+}
+.main-copy-btn.disabled { pointer-events: none; opacity: 0.7; }
+
+/* Sprinkle effect */
+.sprinkle {
+  position: absolute;
+  width: 5px;
+  height: 5px;
+  background: #FFD700;
+  top: 50%;
+  left: 50%;
+  border-radius: 50%;
+  animation: sprinkle 0.8s ease-out forwards;
+}
+@keyframes sprinkle {
+  from { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+  to { opacity: 0; transform: translate(calc(-50% + var(--dx) * 1px), calc(-50% + var(--dy) * 1px)) scale(0.5); }
+}
+
+/* Script Box */
+.script-box {
+  border: 6px solid #8B0000;
+  border-radius: 12px;
+  padding: 25px;
+  position: relative;
+  animation: fadeIn 1.5s ease-in;
+  overflow-x: auto;
+}
+.script-box pre {
+  white-space: pre-wrap;
+  word-break: break-all;
+  font-family: monospace;
+  font-size: 0.9rem;
+}
+.script-copy-btn {
+  position: absolute;
+  top: -38px;
+  left: 20px;
+  background: #5865F2;
+  border: none;
+  color: #fff;
+  padding: 8px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1rem;
+}
+.script-copy-btn.disabled { pointer-events: none; opacity: 0.7; }
+
+/* Footer and Social Icons */
+.footer {
+  text-align: center;
+  font-size: 0.75rem;
+  color: #AAA;
+  margin-top: 40px;
+}
+.social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 10px;
+}
+.social-icons a img {
+  width: 36px;
+  height: 36px;
+}
+
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>CRYZIX</h1>
+    <div class="sep"></div>
+    <h2>Why use Cryzix?</h2>
+    <div class="reasons">
+      <div class="reason" data-number="1">Fully customizable scripts tailored to your needs.</div>
+      <div class="reason" data-number="2">Regular updates and quick bug fixes.</div>
+      <div class="reason" data-number="3">User-friendly interface with one-click operation.</div>
+      <div class="reason" data-number="4">Secure and undetectable scripts for peace of mind.</div>
+      <div class="reason" data-number="5">Active Discord support and community feedback.</div>
+    </div>
+    <div class="sep"></div><h2>SUPPORTED GAMES</h2>
+<div class="supported-wrapper">
+  <div class="game-card">
+    <img src="https://tr.rbxcdn.com/180DAY-9232c0d2d55e8e8d34cf554a79d465cc/768/432/Image/Webp/noFilter" alt="Blade Ball" />
+    <div class="label">Blade Ball</div>
+  </div>
+  <div class="game-card">
+    <img src="https://tr.rbxcdn.com/180DAY-a6ea476b3f66ae73ee3979a53d218302/768/432/Image/Webp/noFilter" alt="Bubble Gum Simulator" />
+    <div class="label">Bubble Gum Simulator</div>
+  </div>
+  <div class="game-card">
+    <img src="https://tr.rbxcdn.com/180DAY-6705bac12a69f7c2adfa2891e1b4443a/768/432/Image/Webp/noFilter" alt="WWII Tycoon" />
+    <div class="label">WWII Tycoon</div>
+  </div>
+</div>
+
+<div class="use-script">USE OUR SCRIPT NOW</div>
+<button class="main-copy-btn" id="mainCopyBtn">Copy</button>
+
+<div class="script-box">
+  <button class="script-copy-btn" id="scriptCopyBtn">Copy</button>
+  <pre id="script-content">loadstring(game:HttpGet("https://raw.githubusercontent.com/hassanxzayn-lua/NEOXHUBMAIN/refs/heads/main/loader", true))()</pre>
+</div>
+<div class="sep"></div>
+
+<div class="footer">© 2025 Cryzix Hub. All rights reserved.</div>
+<div class="social-icons">
+  <a href="https://dsc.gg/cryzixbb" target="_blank" rel="noopener">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRGiyqBYNGMbUF9pPS8oINlJGrAIBWOowZ3XQ&s" alt="Discord" />
+  </a>
+  <a href="https://youtube.com/@skibidipoplol?si=87VIs0G-v40w_y6M" target="_blank" rel="noopener">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqCkAsj6P7c1wSEIL8xX751ZexEaaU7f09ONfM-sUm8g&s" alt="Skibidi Pop Lol" />
+  </a>
+  <a href="https://youtube.com/@josiahscripts?si=YfQa8QYoJMXK1xzl" target="_blank" rel="noopener">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqCkAsj6P7c1wSEIL8xX751ZexEaaU7f09ONfM-sUm8g&s" alt="Josiah Scripts" />
+  </a>
+</div>
+
+  </div>
+  <script>
+    function createSprinkles(container) {
+      for (let i = 0; i < 20; i++) {
+        const span = document.createElement('span');
+        span.classList.add('sprinkle');
+        span.style.setProperty('--dx', Math.random() * 200 - 100);
+        span.style.setProperty('--dy', Math.random() * -200);
+        container.appendChild(span);
+        span.addEventListener('animationend', () => span.remove());
+      }
+    }
+    function handleCopy(btn, targetId) {
+      if (btn.classList.contains('disabled')) return;
+      const content = document.getElementById(targetId).innerText;
+      navigator.clipboard.writeText(content);
+      createSprinkles(btn);
+      btn.textContent = 'Copied!!';
+      btn.classList.add('disabled');
+      setTimeout(() => {
+        btn.textContent = 'Copy';
+        btn.classList.remove('disabled');
+      }, 3000);
+    }
+    document.getElementById('mainCopyBtn').addEventListener('click', function() {
+      handleCopy(this, 'script-content');
+    });
+    document.getElementById('scriptCopyBtn').addEventListener('click', function() {
+      handleCopy(this, 'script-content');
+    });
+  </script>
+</body>
+</html>
